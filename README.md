@@ -6,6 +6,7 @@
     <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/easyantispam">
     <a href="https://discord.gg/gAFRJpasj5"><img alt="Discord" src="https://img.shields.io/discord/791333925968412703?color=%237289DA&label=Discord&logo=discord"></a>
 </p>
+
 [NPM](https://www.npmjs.com/package/easyantispam)
 
 - [Installation](#installation)

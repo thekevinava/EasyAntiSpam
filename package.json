@@ -1,0 +1,31 @@
+{
+  "name": "easyantispam",
+  "version": "1.0.0",
+  "description": "Easy Anti Spam package used for Discord Bots to prevent invites link from other servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekevinava/EasyAntiSpam.git"
+  },
+  "keywords": [
+    "discord",
+    "filter",
+    "anti-spam",
+    "discord.js",
+    "discord-bot",
+    "easy"
+  ],
+  "author": "Kevinava",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/thekevinava/EasyAntiSpam/issues"
+  },
+  "homepage": "https://github.com/thekevinava/EasyAntiSpam#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {}
+}

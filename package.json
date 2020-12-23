@@ -1,6 +1,6 @@
 {
   "name": "easyantispam",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy Anti Spam package used for Discord Bots to prevent invites link from other servers",
   "main": "index.js",
   "scripts": {

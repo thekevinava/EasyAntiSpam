@@ -4,6 +4,7 @@
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/KevinavaDev/EasyAntiSpam">
     <img alt="NPM License" src="https://img.shields.io/npm/l/easyantispam">
     <img alt="NPM Downloads" src="https://img.shields.io/npm/dt/easyantispam">
+    <a href="https://discord.gg/gAFRJpasj5"><img alt="Discord" src="https://img.shields.io/discord/791333925968412703?color=%237289DA&label=Discord&logo=discord"></a>
 </p>
 
 - [Installation](#installation)

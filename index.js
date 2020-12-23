@@ -1,5 +1,6 @@
 module.exports = (client, message) => {
     const discord = require("discord.js");
+    if(!message.guild) return;
     
     let text = false;
 

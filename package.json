@@ -1,9 +1,8 @@
 {
   "name": "easyantispam",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "Easy Anti Spam package used for Discord Bots to prevent invites link from other servers",
-  "main": "src/index.js",
-  "types": "typings/index.d.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +24,8 @@
     "url": "https://github.com/thekevinava/EasyAntiSpam/issues"
   },
   "homepage": "https://github.com/thekevinava/EasyAntiSpam#readme",
-  "dependencies": {},
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  },
   "devDependencies": {}
 }

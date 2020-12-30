@@ -30,12 +30,15 @@ yarn add easyantispam
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const AntiSpam = require('easyantispam');
+const EasyAntiSpam = require('easyantispam'); // Js
+// TypeScript: import EasyAntiSpam from "easyantispam";
+
+Easy = new EasyAntiSpam.Config({ url: true, discord: true, dm: true, antiStaff: false}); // Set the config variables
 
 client.once('ready', () => console.log('Bot is online!'));
 
 client.on('message', async message => {
-    AntiSpam(client, message);
+    Easy.run(message);
 });
 
 client.login('TOKEN_HERE');

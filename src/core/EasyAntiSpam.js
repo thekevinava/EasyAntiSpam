@@ -36,6 +36,8 @@ class EasyAntiSpam {
         if (this.type == 1) if (DiscordExpression.test(message.content)) text = true;
         if (this.type == 2) if (URLexpression.test(message.content)) text = true;
 
+        if (/^(http|https):\/\/.*\.(png|jpg|jpeg|gif)$/i.test(message.content)) text = false;
+        
         if (text) {
             if (!this.antiStaff && (message.member.hasPermission("ADMINISTRATOR") || message.member.hasPermission("MANAGE_CHANNELS"))) return;
 

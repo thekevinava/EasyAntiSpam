@@ -8,6 +8,8 @@
     <a href="https://www.npmjs.com/package/easyantispam">NPM</a>
 </p>
 
+The principal function for this package is handle all URLs sended by users on a server and delete it if you want.
+
 - [Support](#support)
 - [Installation](#installation)
 - [Examples](#examples)
@@ -54,7 +56,8 @@ client.login('TOKEN_HERE');
 
 # API
 
-Is important to pass all the options.
+The Config is to initialize the Anti Spam system.
+The run() is placed inside the message event to analyze all received messages.
 
 ### Config(options: EasyAntiSpamOptions) returns Promise<boolean>
 
@@ -66,16 +69,16 @@ Is important to pass all the options.
 
 # Options
 
-<!-- Properties marked with `?` are optional. -->
+Properties marked with `?` are optional.
 
 ### EasyAntiSpamOptions
 
 ```js
 {
     type: 1 // 1: Only Discord Invites, 2: All URLS
-    dm: true/false, // If you want to send a DM with his/her message. False by default.
-    antiStaff: true/false, // If you want to delete staff urls or not. False by default.
-    warningMessage: "Here is your warning message" // You have different options found in warningMessageOptions section.
+    dm?: true/false, // If you want to send a DM with his/her message. False by default.
+    antiStaff?: true/false, // If you want to delete staff urls or not. False by default.
+    warningMessage?: "Here is your warning message" // You have different options found in warningMessageOptions section.
 }
 ```
 

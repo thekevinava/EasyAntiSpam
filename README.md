@@ -47,7 +47,6 @@ Easy = new EasyAntiSpam.Config({ type: 2, antiStaff: false, warningMessage: `Mes
 client.once('ready', () => console.log('Bot is online!'));
 
 client.on('message', async message => {
-    AntiSpam(client, message);
     Easy.run(message);
 });
 

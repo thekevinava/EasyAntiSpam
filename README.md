@@ -38,7 +38,6 @@ yarn add easyantispam
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const AntiSpam = require('easyantispam');
 const EasyAntiSpam = require('easyantispam'); // Js
 // TypeScript: import EasyAntiSpam from "easyantispam";
 

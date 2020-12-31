@@ -1,7 +1,7 @@
 # Easy Anti Spam
 <p>
     <a href="https://www.npmjs.com/package/easyantispam"><img alt="NPM Version" src="https://img.shields.io/npm/v/easyantispam"></a>
-    <a href="https://github.com/thekevinava/EasyAntiSpam/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/KevinavaDev/EasyAntiSpam"></a>
+    <a href="https://github.com/thekevinava/EasyAntiSpam/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/thekevinava/EasyAntiSpam"></a>
     <a href="https://www.npmjs.com/package/easyantispam"><img alt="NPM License" src="https://img.shields.io/npm/l/easyantispam"></a>
     <a href="https://www.npmjs.com/package/easyantispam"><img alt="NPM Downloads" src="https://img.shields.io/npm/dt/easyantispam"></a>
     <a href="https://discord.gg/gAFRJpasj5"><img alt="Discord" src="https://img.shields.io/discord/791333925968412703?color=%237289DA&label=Discord&logo=discord"></a>

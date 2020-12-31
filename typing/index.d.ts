@@ -1,16 +1,44 @@
 declare module "easyantispam" {
-    interface EasyAntiSpamOptions {
-        type: number;
-        antiStaff?: boolean;
-        dm?: boolean;
-        warningMessage?: string;
+    interface EasyAntiSpamData {
+        message: {
+            author: string;
+            content: string;
+            date: number;
+        }[];
+        warned: string[];
+        kicked: string[];
+        banned: string[];
     }
 
-    export class Config {
-        constructor(options:EasyAntiSpamOptions);
-        private options: EasyAntiSpamOptions;
-        public run(
-            options: EasyAntiSpamOptions
-        ): Promise<boolean>;
+    interface EasyAntiSpamOptions {
+        urls?: boolean;
+        discordInvites?: boolean;
+        allowUrlImages?: boolean;
+        dm?: boolean;
+        messageLink?: string;
+        messageFlood?: string;
+        messageKicked?: string;
+        messageBanned?: string;
+        allowBots?: boolean;
+        allowedPerms?: string[];
+        warnRow?: number;
+        kickRow?: number;
+        banRow?: number;
+        rowInterval?: number;
+        warnDuplicates?: number;
+        kickDuplicates?: number;
+        banDuplicates?: number;
+        duplicatesInterval?: number;
+        canKick?: boolean;
+        canBan?: boolean;
+        banDays?: number;
+    }
+
+    export class EasyAntiSpam {
+        constructor(options?: EasyAntiSpamOptions);
+        public options: EasyAntiSpamOptions;
+        public data: EasyAntiSpamData;
+
+        public run(message): Promise<boolean>;
     }
 }

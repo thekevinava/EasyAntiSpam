@@ -1,52 +1,25 @@
-/**
- * Options for EasyAntiSpam with URLS
- * 
- * @typedef {object} EasyAntiSpamOptions Options setted for EasyAntiSpam
- * 
- * @property {boolean} [urls=false] Delete or not all URLS
- * @property {boolean} [discordInvites=false] Delete or not Discord Invites 
- * @property {boolean} [allowUrlImages=true] Delete or not Images provided by URL
- * @property {boolean} [dm=false] If true, send your message with URL to private message
- * @property {string} [messageLink="Hey {author}, you are not allowed to send spam."] Message sent when a user send an URL
- * @property {string} [messageFlood="Hey {author}, stop doing spam."] Message sent when a user send an URL
- * @property {string} [messageKicked="{author} has been kicked."] Message sent when a user send an URL
- * @property {string} [messageBanned="{author} has been banned."] Message sent when a user send an URL
- * @property {boolean} [allowBots=true] Allow bots
- * @property {Array<string>} [allowedPerms=[]] List of permissions allowed to do spam
- * @property {number} [warnRow=4] Messages sent in a row to be warned
- * @property {number} [kickRow=6] Messages sent in a row to be kicked
- * @property {number} [banRow=8] Messages sent in a row to be banned
- * @property {number} [rowInterval=2000] Amount of time in ms to consider spam
- * @property {number} [warnDuplicates=5] Amount of duplicated messages to be warned
- * @property {number} [kickDuplicates=10] Amount of duplicated messages to be kicked
- * @property {number} [banDuplicates=15] Amount of duplicated messages to be banned
- * @property {number} [duplicatesInterval] Amount of time in ms to consider spam
- * @property {boolean} [canKick=false] If false, the bot dont kick users
- * @property {boolean} [canBan=false] If false, the bot dont ban users
- */
-
 const EasyAntiSpamOptions = {
-    urls: false,
-    discordInvites: false,
-    allowUrlImages: true,
-    dm: false,
-    messageLink: "Hey {author}, you are not allowed to send spam.",
-    messageFlood: "Hey {author}, stop doing spam.",
-    messageKicked: "{author} has been kicked.",
-    messageBanned: "{author} has been banned.",
-    allowBots: true,
-    allowedPerms: [],
-    warnRow: 4,
-    kickRow: 6,
-    banRow: 8,
-    rowInterval: 2000, // 2s
-    warnDuplicates: 5,
-    kickDuplicates: 10,
-    banDuplicates: 15,
-    duplicatesInterval: 600000, // 10 min
-    canKick: false,
-    canBan: false,
-    banDays: 1,
+    urls: false, // Delete or not all URLS
+    discordInvites: false, // Delete or not Discord Invites 
+    allowUrlImages: true, // Delete or not Images provided by URL
+    dm: false, // If true, send your message with URL to private message
+    messageLink: "Hey {author}, you are not allowed to send spam.", // Message sent when a user send an URL
+    messageFlood: "Hey {author}, stop doing spam.", // Message sent when a user is warned for flood
+    messageKicked: "{author} has been kicked.", // Message sent when a user is kicked
+    messageBanned: "{author} has been banned.", // Message sent when a user is banned
+    allowBots: true, // Allow bots
+    allowedPerms: [], // List of permissions allowed to do spam
+    warnRow: 4, // Messages sent in a row to be warned
+    kickRow: 6, // Messages sent in a row to be kicked
+    banRow: 8, // Messages sent in a row to be banned
+    rowInterval: 2000, // Amount of time in ms to consider spam (2s)
+    warnDuplicates: 5, // Duplicated messages sent to be warned
+    kickDuplicates: 10, // Duplicated messages sent to be kicked
+    banDuplicates: 15, // Duplicated messages sent to be banned
+    duplicatesInterval: 600000, // Amount of time in ms to consider spam (10m)
+    canKick: false, // If false, the bot dont kick users
+    canBan: false, // If false, the bot dont ban users
+    banDays: 1, // Amount of days of Ban
 }
 
 class EasyAntiSpam {
@@ -82,14 +55,23 @@ class EasyAntiSpam {
             date: Date.now()
         });
 
-        // let URLexpression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
-        // let DiscordExpression = /(discord\.(gg|io|me|li)\/.+|discordapp\.com\/invite\/.+)/i;
-        // if (/^(http|https):\/\/.*\.(png|jpg|jpeg|gif)$/i.test(message.content)) text = false;
-        // if (options.dm) {
-        //     await message.channel.send(options.message + ". I sent you the message via DM to correct it.");
-        //     await message.author.send("```" + message.content + "```");
-        // }
-        // else await message.channel.send(options.message);
+        let text = false;
+        const URLexpression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+        const DiscordExpression = /(discord\.(gg|io|me|li)\/.+|discordapp\.com\/invite\/.+)/i;
+        const ImageExpression = /^(http|https):\/\/.*\.(png|jpg|jpeg|gif)$/i;
+
+        if (options.urls && URLexpression.test(message.content)) text = true;
+        if (options.discordInvites && DiscordExpression.test(message.content)) text = true;
+        if (options.allowUrlImages && ImageExpression.test(message.content)) text = false;
+
+        if (text) {
+            message.delete();
+            if (options.dm) {
+                message.channel.send(options.messageLink.replace(/{author}/g, message.author.toString()) + ". I sent you the message via DM to correct it.");
+                message.author.send("```" + message.content + "```")
+            }
+            else message.channel.send(options.messageLink.replace(/{author}/g, message.author.toString()));
+        }
 
 
         const messagesInRow = data.messages.filter(m => m.date > Date.now() - options.rowInterval && m.author === message.author.id).length;

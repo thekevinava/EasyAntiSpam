@@ -13,7 +13,8 @@ This package have 2 principal functions:
 - Handle flood messages and repeated messages.
 
 
-<h1>Summary</h1>
+# Summary
+
 - [Support](#support)
 - [Installation](#installation)
 - [Examples](#examples)

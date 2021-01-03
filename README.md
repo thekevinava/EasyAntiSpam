@@ -12,6 +12,8 @@ This package have 2 principal functions:
 - Handle URLs spammed.
 - Handle flood messages and repeated messages.
 
+
+<h1>Summary</h1>
 - [Support](#support)
 - [Installation](#installation)
 - [Examples](#examples)

@@ -5,6 +5,7 @@
     <a href="https://www.npmjs.com/package/easyantispam"><img alt="NPM License" src="https://img.shields.io/npm/l/easyantispam"></a>
     <a href="https://www.npmjs.com/package/easyantispam"><img alt="NPM Downloads" src="https://img.shields.io/npm/dt/easyantispam"></a>
     <a href="https://discord.gg/gAFRJpasj5"><img alt="Discord" src="https://img.shields.io/discord/791333925968412703?color=%237289DA&label=Discord&logo=discord"></a>
+    <a href="https://easyantispam.kevinava.com"><img alt="GitBook" src="https://img.shields.io/badge/Click-GitBook-green"></a>
     <a href="https://www.npmjs.com/package/easyantispam">NPM</a>
 </p>
 
@@ -25,6 +26,7 @@ This package have 2 principal functions:
 
 # Support
 
+[GitBook Page](https://easyantispam.kevinava.com)
 You can contact us on your [Discord server](https://discord.gg/gAFRJpasj5)
 
 # Installation

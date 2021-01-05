@@ -1,6 +1,6 @@
 {
   "name": "easyantispam",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Easy Anti Spam package used for Discord Bots to prevent invites link from other servers and flooded/duplicated messages.",
   "main": "src/index.js",
   "types": "typings/index.d.ts",
@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/thekevinava/EasyAntiSpam/issues"
   },
-  "homepage": "https://thekevinava.gitbook.io/easyantispam/",
+  "homepage": "https://easyantispam.kevinava.com",
   "dependencies": {},
   "devDependencies": {}
 }
